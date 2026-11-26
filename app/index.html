@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NusaData — Statistik Indonesia</title>
+<meta name="description" content="NusaData is an independent statistics portal for Indonesia: population, economy, health, education, regions and environment, with figures sourced from BPS and government releases.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#/overview"><span class="brand-mark">N</span><span class="brand-name">NusaData</span><span class="brand-sub">Statistik Indonesia</span></a>
+    <nav class="mainnav" aria-label="Sections">
+      <a class="nav-link" data-route="overview" href="#/overview">Overview</a>
+      <a class="nav-link" data-route="population" href="#/population">Population</a>
+      <a class="nav-link" data-route="economy" href="#/economy">Economy</a>
+      <a class="nav-link" data-route="health" href="#/health">Health</a>
+      <a class="nav-link" data-route="education" href="#/education">Education</a>
+      <a class="nav-link" data-route="regions" href="#/regions">Regions</a>
+      <a class="nav-link" data-route="environment" href="#/environment">Environment</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ============ OVERVIEW ============ -->
+  <section id="page-overview" aria-label="Overview">
+    <div class="hero">
+      <p class="eyebrow">Indonesia · 17,000+ islands · 38 provinces</p>
+      <h1>Indonesia in numbers, kept up to date.</h1>
+      <p class="lede">Population, economy, health, education and the regions — the figures people actually look up, with the source and year on every number. Built from BPS and government releases.</p>
+      <div class="year-toggle" role="group" aria-label="Choose a year">
+        <span class="toggle-label">Year:</span>
+        <button type="button" class="year-btn" data-year="2022">2022</button>
+        <button type="button" class="year-btn" data-year="2023">2023</button>
+        <button type="button" class="year-btn active" data-year="2024">2024</button>
+      </div>
+      <p id="year-note" class="fineprint"></p>
+    </div>
+
+    <div id="kpi-grid" class="kpi-grid" aria-live="polite"></div>
+
+    <div class="two-col">
+      <article class="card">
+        <div class="card-head">
+          <h2>Growth, 2019–2024</h2>
+          <div class="btn-row" role="group" aria-label="Choose a trend">
+            <button type="button" class="trend-btn active" data-metric="population">Population</button>
+            <button type="button" class="trend-btn" data-metric="gdp">GDP</button>
+          </div>
+        </div>
+        <div id="trend-chart"></div>
+        <p id="trend-caption" class="fineprint"></p>
+      </article>
+      <article class="card">
+        <div class="card-head">
+          <h2>Who Indonesians are</h2>
+          <div class="btn-row" role="group" aria-label="Choose a breakdown">
+            <button type="button" class="donut-btn active" data-set="employment">Employment</button>
+            <button type="button" class="donut-btn" data-set="religion">Religion</button>
+          </div>
+        </div>
+        <div id="donut-box"></div>
+        <p id="donut-caption" class="fineprint"></p>
+      </article>
+    </div>
+
+    <article class="card">
+      <h2>At a glance</h2>
+      <p>Indonesia is the world’s fourth most populous country and the largest economy in Southeast Asia. More than half of its people live on Java, an island about the size of England that holds roughly 55% of the population. The economy grew by about 5% a year through 2022–2024, inflation fell back to 1.6% in 2024, and the poverty rate dropped to 8.6% — the lowest on record. Use the sections above to explore each topic in detail.</p>
+      <p class="fineprint">All figures on this page are rounded. Sources: BPS (Statistics Indonesia), Bank Indonesia, Ministry of Health, Ministry of Environment and Forestry. Last updated 26 November 2026.</p>
+    </article>
+  </section>
+
+  <!-- ============ POPULATION ============ -->
+  <section id="page-population" aria-label="Population" hidden>
+    <div class="page-head">
+      <p class="eyebrow">People</p>
+      <h1>Population: 281.6 million people (2024)</h1>
+      <p class="lede">Indonesia’s population grows by roughly 3 million people a year. Java remains the centre of gravity: the three Javanese provinces alone hold more people than the whole of the rest of the country’s islands combined.</p>
+    </div>
+    <article class="card">
+      <div class="card-head">
+        <h2>Most populous provinces, 2024</h2>
+        <div class="btn-row" role="group" aria-label="Sort provinces">
+          <button type="button" class="barsort-btn active" data-sort="pop">Largest first</button>
+          <button type="button" class="barsort-btn" data-sort="name">A–Z</button>
+        </div>
+      </div>
+      <div id="province-bars"></div>
+      <p id="province-bars-caption" class="fineprint"></p>
+    </article>
+    <div class="two-col">
+      <article class="card">
+        <h2>Population by island group</h2>
+        <ul id="island-list" class="island-list"></ul>
+        <p class="fineprint">Totals computed from the provincial table, 2024 rounded estimates. Source: BPS.</p>
+      </article>
+      <article class="card">
+        <h2>How the population is spread</h2>
+        <p>Java holds about 55% of Indonesians on about 7% of the land — Jakarta’s density is above 15,000 people per km², while Papua’s provinces are below 20. The capital’s move to Nusantara in East Kalimantan, announced in 2019 and under construction since 2022, is the government’s long-term answer to that imbalance.</p>
+        <p>Median age is about 30 years, and the working-age share is still rising — a demographic dividend that peaks around 2030. <a href="#/regions">Explore all 38 provinces →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ ECONOMY ============ -->
+  <section id="page-economy" aria-label="Economy" hidden>
+    <div class="page-head">
+      <p class="eyebrow">Money</p>
+      <h1>Economy: a $1.40 trillion economy (2024)</h1>
+      <p class="lede">Indonesia is the world’s 16th largest economy and the largest in Southeast Asia. Growth has held near 5% a year, driven by household consumption, nickel and commodity exports, and a fast-growing digital economy.</p>
+    </div>
+    <article class="card">
+      <h2>The economy year by year</h2>
+      <table class="data-table">
+        <thead><tr><th>Indicator</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Nominal GDP</td><td class="num">$1.32 trillion</td><td class="num">$1.37 trillion</td><td class="num">$1.40 trillion</td><td>BPS / Bank Indonesia</td></tr>
+          <tr><td>GDP in rupiah</td><td class="num">Rp 19,599 trillion</td><td class="num">Rp 20,892 trillion</td><td class="num">Rp 22,139 trillion</td><td>BPS</td></tr>
+          <tr><td>GDP per person</td><td class="num">≈ $4,790</td><td class="num">≈ $4,920</td><td class="num">≈ $4,970</td><td>Computed from BPS figures</td></tr>
+          <tr><td>Real GDP growth</td><td class="num">5.31%</td><td class="num">5.05%</td><td class="num">5.03%</td><td>BPS</td></tr>
+          <tr><td>Inflation (December, yoy)</td><td class="num">5.51%</td><td class="num">2.61%</td><td class="num">1.57%</td><td>BPS</td></tr>
+          <tr><td>Poverty rate (September)</td><td class="num">9.57%</td><td class="num">9.36%</td><td class="num">8.57%</td><td>BPS</td></tr>
+        </tbody>
+      </table>
+      <p class="fineprint">Per-person GDP is computed from the GDP and population figures above and rounded to the nearest $10.</p>
+    </article>
+    <h2 class="section-title">Labour market</h2>
+    <div id="labour-grid" class="fact-grid"></div>
+    <article class="card">
+      <h2>What drives it</h2>
+      <p>Services now produce more than half of GDP, and manufacturing — food, textiles, electronics and vehicles — about a fifth. Indonesia is the world’s largest nickel producer and a top exporter of palm oil, coal and rubber. The rupiah trades at roughly Rp 16,000 to the US dollar (2024–2025), and Bank Indonesia’s policy rate ended 2024 at 6.00%.</p>
+    </article>
+  </section>
+
+  <!-- ============ HEALTH ============ -->
+  <section id="page-health" aria-label="Health" hidden>
+    <div class="page-head">
+      <p class="eyebrow">Wellbeing</p>
+      <h1>Health: living longer, still catching up</h1>
+      <p class="lede">Life expectancy reached 74.1 years in 2024, up from about 71 a decade earlier. The big public-health fight is stunting: one in five children under five was stunted in 2024, and the government’s target is 14% by 2029.</p>
+    </div>
+    <div id="health-grid" class="fact-grid"></div>
+    <article class="card">
+      <h2>How care is organised</h2>
+      <p>BPJS Kesehatan, the national health insurance scheme launched in 2014, now covers more than 270 million people — one of the largest single-payer systems in the world. Care is delivered through about 10,000 community health centres (puskesmas) plus hospitals, but doctors and specialists remain concentrated in Java’s cities: the national average is roughly 6 doctors per 10,000 people, against more than 20 in Jakarta.</p>
+    </article>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="page-education" aria-label="Education" hidden>
+    <div class="page-head">
+      <p class="eyebrow">Learning</p>
+      <h1>Education: near-universal schooling, nine years on average</h1>
+      <p class="lede">Primary enrolment is effectively universal, and the average Indonesian adult has completed 9 years of schooling. The next frontier is quality: learning outcomes in reading and maths trail regional peers, and vocational training is expanding to match a young workforce to industry.</p>
+    </div>
+    <div id="education-grid" class="fact-grid"></div>
+    <article class="card">
+      <h2>How schooling is organised</h2>
+      <p>Schooling is compulsory for 12 years (6 primary, 3 junior secondary, 3 senior secondary), and about a fifth of the state budget goes to education by constitutional mandate. Indonesia has roughly 4,500 higher-education institutions, from state universities such as Universitas Indonesia and Gadjah Mada to thousands of private colleges, with about 10 million students enrolled.</p>
+    </article>
+  </section>
+
+  <!-- ============ REGIONS ============ -->
+  <section id="page-regions" aria-label="Regions" hidden>
+    <div class="page-head">
+      <p class="eyebrow">38 provinces</p>
+      <h1>Regions: from Aceh to Papua Selatan</h1>
+      <p class="lede">Pick a province to see its key numbers, or search and sort the full table of all 38 provinces.</p>
+    </div>
+    <div class="two-col">
+      <article class="card">
+        <h2>Province explorer</h2>
+        <label class="field-label" for="province-select">Choose a province</label>
+        <select id="province-select" class="select"></select>
+        <div id="province-detail" class="province-detail" aria-live="polite"></div>
+      </article>
+      <article class="card">
+        <h2>Why the regions differ so much</h2>
+        <p>Indonesia spans three time zones and more than 300 ethnic groups. Java’s provinces are dense, industrial and service-led; Sumatra and Kalimantan export palm oil, coal and gas; eastern provinces such as Papua and Maluku are sparsely populated, rich in minerals and forests, and furthest from markets. Provincial minimum wages in 2025 ranged from about Rp 2.0 million a month in the east to Rp 5.6 million in Jakarta.</p>
+        <p class="fineprint">Figures: BPS 2024 rounded estimates. Densities are approximate.</p>
+      </article>
+    </div>
+    <article class="card">
+      <div class="card-head">
+        <h2>All provinces</h2>
+        <span id="region-count" class="count-pill" aria-live="polite"></span>
+      </div>
+      <div class="table-tools">
+        <label class="field-label" for="region-search">Search</label>
+        <input id="region-search" class="input" type="search" placeholder="Name, capital or island — try “Papua” or “Medan”">
+        <label class="field-label" for="region-sort">Sort by</label>
+        <select id="region-sort" class="select">
+          <option value="pop">Population (largest first)</option>
+          <option value="name">Name (A–Z)</option>
+          <option value="density">Density (highest first)</option>
+        </select>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>Province</th><th>Capital</th><th>Island</th><th class="num">Population (millions, 2024)</th><th class="num">Density (per km², approx.)</th><th class="num">Share of Indonesia</th></tr></thead>
+          <tbody id="regions-body"></tbody>
+        </table>
+      </div>
+      <p class="fineprint">Population: BPS 2024 rounded estimates. Area rounded; density is approximate. Provincial figures may not sum exactly to the national total.</p>
+    </article>
+  </section>
+
+  <!-- ============ ENVIRONMENT ============ -->
+  <section id="page-environment" aria-label="Environment" hidden>
+    <div class="page-head">
+      <p class="eyebrow">Nature</p>
+      <h1>Environment: forests, seas and a warming climate</h1>
+      <p class="lede">Indonesia holds about half of the world’s tropical peatland and the third-largest tropical rainforest, home to orangutans, tigers and rhinos found nowhere else. Protecting them while developing the economy is the country’s central environmental tension.</p>
+    </div>
+    <div id="environment-grid" class="fact-grid"></div>
+    <article class="card">
+      <h2>Forests and climate</h2>
+      <p>Forest cover stood at about 95.6 million hectares in 2023 — roughly half the land. Deforestation fell sharply from its 2015 peak after a moratorium on new palm-oil and logging permits, though fires in dry El Niño years still burn large areas of peat. Indonesia has pledged net-zero emissions by 2060, with coal still generating about 60% of electricity and renewables at about 19% of the energy mix in 2024.</p>
+      <p class="fineprint">Sources: Ministry of Environment and Forestry (KLHK), Ministry of Energy and Mineral Resources, Global Carbon Budget.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><strong>NusaData</strong> — an independent statistics portal for Indonesia. Not affiliated with BPS or any government body.</p>
+    <p>Sources: BPS (Statistics Indonesia) · Bank Indonesia · Ministry of Health · Ministry of Environment and Forestry · World Bank · WHO. Figures are rounded; each number shows its source year. Last updated 26 November 2026.</p>
+    <p><a href="#/overview">Overview</a> · <a href="#/population">Population</a> · <a href="#/economy">Economy</a> · <a href="#/health">Health</a> · <a href="#/education">Education</a> · <a href="#/regions">Regions</a> · <a href="#/environment">Environment</a></p>
+  </div>
+</footer>
+<script type="module" src="main.js"></script>
+</body>
+</html>
